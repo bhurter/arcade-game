@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function ( x, y, speed ) {
+var Enemy = function ( x, y, speed, sprite ) {
 	// Variables applied to each of our instances go here,
 	// we've provided one for you to get started
 	this.x = x;
@@ -7,7 +7,9 @@ var Enemy = function ( x, y, speed ) {
 	this.speed = speed;
 	// The image/sprite for our enemies, this uses
 	// a helper we've provided to easily load images
-	this.sprite = 'images/enemy-bug1.png';
+	this.sprite = sprite;
+
+
 };
 
 // Update the enemy's position, required method for game
@@ -49,8 +51,8 @@ Enemy.prototype.checkCollision = function () {
 // a handleInput() method.
 // Enemies our player must avoid
 var Player = function ( x, y, moveX, moveY, sprite ) {
-	this.x = x
-	this.y = y
+	this.x = x;
+	this.y = y;
 	this.moveX = moveX;
 	this.moveY = moveY;
 	this.sprite = sprite;
@@ -160,6 +162,18 @@ Player.prototype.goalAchieved = function () {
 	reset( this, startX, startY );
 }
 
+var Message = function ( x, y ) {
+	this.x = x;
+	this.y = y;
+	this.sprite = "images/GameOver.png";
+}
+
+// Draw the Game Over message on the screen, required method for game
+Message.prototype.render = function () {
+	ctx.drawImage( Resources.get( this.sprite ), this.x, this.y );
+};
+
+
 /*
  * Sound object
  */
@@ -216,7 +230,8 @@ function addEnemy() {
 	var loc = randomInt( enemyMinY, enemyMaxY );
 	//var speed = speedMin + ( speedInc * gameLevel );
 	var speed = randomInt( speedMin, speedMax );
-	const enemy = new Enemy( 0, loc, speed );
+	var sprite = enemyImg[ randomInt( 0, 3 ) ];
+	const enemy = new Enemy( 0, loc, speed, sprite );
 	allEnemies.push( enemy );
 }
 
@@ -260,9 +275,30 @@ function resetPlayer() {
 }
 
 function gameOver() {
+
+	endEnemy = new Enemy();
 	allEnemies.length = 0;
-	$( '#gameOver' ).modal();
-	//gameOverVoice.play();
+	//reset( allEnemies[ 0 ], 83, )
+	for ( let i = 0; i < enemyImg.length; i++ ) {
+		var endEnemy = new Enemy( tileWidth * ( i ), 303, 0, enemyImg[ i ] );
+		//(tileWidth * (i) - width*2)
+		allEnemies.push( endEnemy );
+	}
+	reset( player, startX + 15, 200 );
+
+	reset( allEnemies[ 0 ], allEnemies[ 0 ].x + ( ( tileWidth - Resources.get( allEnemies[ 0 ].sprite ).width ) / 2 ), 296 );
+	reset( allEnemies[ 1 ], allEnemies[ 1 ].x + ( ( tileWidth - Resources.get( allEnemies[ 0 ].sprite ).width ) / 2 ), 248 );
+	reset( allEnemies[ 2 ], allEnemies[ 2 ].x + tileWidth + ( ( tileWidth - Resources.get( allEnemies[ 0 ].sprite ).width ) / 2 ), 248 );
+	reset( allEnemies[ 3 ], allEnemies[ 3 ].x + tileWidth + ( ( tileWidth - Resources.get( allEnemies[ 0 ].sprite ).width ) / 2 ), 296 );
+
+	var gameOverText = new Enemy( ( ( maxWidth - Resources.get( "images/GameOverText.png" ).width ) / 2 ), 55, 0, "images/GameOverText.png" );
+	allEnemies.push( gameOverText );
+
+	//ctx.canvas.style.visibilty = "hidden";;;
+	//const message = new Message( 0, 0 );;;
+	//message.render();
+	//$( '#gameOver' ).modal();
+	gameOverVoice.play();
 }
 
 function randomInt( min, max ) {
@@ -278,6 +314,7 @@ function newGame() {
 	addHeart( 5 );
 	player.gameScore = 0;
 	updateGameScore( player.gameScore );
+	resetPlayer();
 }
 
 var maxWidth = 505;
@@ -291,13 +328,14 @@ var startX = ( Math.round( nCols / 2 ) - 1 ) * tileWidth;
 var startY = tileHeight * ( nRows - 1 );
 var gameLevel = 1;
 var lives = 0;
-var enemyMinY = tileHeight
-var enemyMaxY = tileHeight * 4;
+var enemyMinY = tileHeight + 10;
+var enemyMaxY = ( tileHeight * 4 ) - 10;
 var speedMin = 50;
 var speedMax = 150;
 var moveX = tileWidth / 3;
 var moveY = tileHeight / 3;
-var playerImg = 'images/char-horn-girl1.png'
+var playerImg = 'images/char-boy.png'
+var enemyImg = [ 'images/char-cat-girl.png', 'images/char-horn-girl.png', 'images/char-pink-girl.png', 'images/char-princess-girl.png' ]
 
 if ( nCols % 2 === 0 ) {
 	startX = ( nCols / 2 ) * tileWidth - ( Math.round( tileWidth / 2 ) );
