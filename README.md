@@ -5,4 +5,30 @@ Students should use this [rubric](https://review.udacity.com/#!/projects/2696458
 
 For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
 #arcade-game
-# arcade-game
+For this game, I chose to use the Lil' Abner Sadie Hawkins Day for the theme.
+To learn more about Sadie Hawkins Day and Lil' Abner, see: http://lil-abner.com/sadie-hawkins-day/.
+
+## Meet the Player
+    ![Lil' Abner](../master/images/char-boy.png)
+
+This game is a takeoff on Sadie Hawkins day, where the girls chase the young
+*	men. (See http://lil-abner.com/sadie-hawkins-day/)
+*
+*	The enemies are:
+*    Princess
+*    Cat-girl
+*    Horn-girl
+*    Pink-girl
+*
+* 	As the player, you are the boy.  Your mission is to reach the water without
+*	being "caught" by a girl.
+*
+* 		1. Use the up, down, left and right arrows to move the player.
+* 		2. If you are "caught", you lose a heart and have to try again.
+* 		3. When you reach the top you "level up" and receive:
+*    	• A new life (heart)
+*    	• 5,000 points
+*    	• 10 points for every millisecond below 5 seconds time that it takes to
+*					reach the top
+*			•	and...  Lookout.  Another girl joins the chase!
+*
