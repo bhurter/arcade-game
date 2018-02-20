@@ -7,19 +7,11 @@ For detailed instructions on how to get started, check out this [guide](https://
 
 # Arcade Game
 For this game, I chose to use the Lil' Abner Sadie Hawkins Day for the theme.
-[Learn more about Sadie Hawkins Day and Lil' Abner](http://lil-abner.com/sadie-hawkins-day/).
+Learn more about [Sadie Hawkins Day and Lil' Abner](http://lil-abner.com/sadie-hawkins-day/).
 
 ## Getting Started
 
-This project uses the following:
-  - Font Awesome Heart icons
-  - Bootstrap V3.3.7
-  - Ajax jQuery 1.12.4
-  - Sounds:
-  	* "success 1" by [fins](https://freesound.org/people/fins/) - licensed under CC0 1.0 Universal
-  	* "Cute Pixie says Game Over" by [squarepug](https://freesound.org/people/squarepug/) - licensed under CC0 1.0 Universal
- 	* "Walking 4" by [Mativve](https://freesound.org/people/Mattive/) - licensed under CC BY 3.0
- 	* "Boing.wav" by [justkiddink](https://freesound.org/people/juskiddink/) - licensed under CC BY 3.0
+To start the game
   
 ## Meet the Player
 ![Lil' Abner](/images/char-boy.png) 
@@ -48,4 +40,11 @@ As the player, your mission is to reach the water wtihout being "caught" by a gi
 ## Acknowledgments
 
   - Udacity - game engine and artwork
-  - https://realfavicongenerator.net/
+  - Font Awesome Heart icons
+  - Bootstrap V3.3.7
+  - Ajax jQuery 1.12.4
+  - Sounds:
+  	* "success 1" by [fins](https://freesound.org/people/fins/) - licensed under CC0 1.0 Universal
+  	* "Cute Pixie says Game Over" by [squarepug](https://freesound.org/people/squarepug/) - licensed under CC0 1.0 Universal
+ 	* "Walking 4" by [Mativve](https://freesound.org/people/Mattive/) - licensed under CC BY 3.0
+ 	* "Boing.wav" by [justkiddink](https://freesound.org/people/juskiddink/) - licensed under CC BY 3.0
