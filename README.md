@@ -1,15 +1,15 @@
-# Catch Me If You Can Arcade Game
+# Catch Me If You Can - Arcade Game
 
 It's recess time, and all the first-grade girls are chasing little Tommy around the playground.  His mission is to avoid capture at all costs by crossing the sidewalk and jumping into the creek.  Help him navigate his way through the hoardes of silly girls as they try to catch him.
 
 
 ## Getting Started
 
-Click to [play Lil' Abner](https://bhurter.github.io/arcade-game/)
+Click to [play "Catch Me If You Can"](https://bhurter.github.io/arcade-game/)
   
 ## Meet the Player
 
-![Lil' Abner](/images/char-boy.png) 
+![Tommy](/images/char-boy.png) 
 
 
 ## Meet the Enemies
@@ -20,7 +20,7 @@ Click to [play Lil' Abner](https://bhurter.github.io/arcade-game/)
 ![The Sweet One](/images/char-pink-girl.png)
 
 ## Game Rules
-As the player, your mission is to reach the water wtihout being "caught" by a girl.
+As Tommy (the player), your mission is to reach the water wtihout being "caught" by a girl (the enemy).
 
 1.  Use the up, down, left and right arrows to move the player.
 2.  If you are "caught", you lose a heart and have to try again.
