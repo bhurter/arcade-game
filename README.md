@@ -11,13 +11,15 @@ Learn more about [Sadie Hawkins Day and Lil' Abner](http://lil-abner.com/sadie-h
 
 ## Getting Started
 
-To start the game
+Click to [play Sadie Hawkins](https://bhurter.github.io/arcade-game/)
   
 ## Meet the Player
+
 ![Lil' Abner](/images/char-boy.png) 
 
 
 ## Meet the Enemies
+
 ![The Princess](/images/char-princess-girl.png)
 ![The Cat Girl](/images/char-cat-girl.png)
 ![The Mischiveous One](/images/char-horn-girl.png)
