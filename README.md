@@ -1,6 +1,6 @@
 # Catch Me If You Can - Arcade Game
 
-It's recess time, and all the first-grade girls are chasing little Tommy around the playground.  His mission is to avoid capture at all costs by crossing the sidewalk and jumping into the creek.  Help him navigate his way through the hoardes of silly girls as they try to catch him.
+It's recess time, and all the first-grade girls are chasing little Tommy around the playground.  His mission is to avoid capture at all costs by crossing the sidewalk and jumping into the creek.  Help him navigate his way through the horde of silly girls as they try to catch him.
 
 
 ## Getting Started
