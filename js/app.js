@@ -46,7 +46,7 @@
  *		checkCollision - check for a collision with the Player
  ******************************************************************************/
 
-var Sprite = function ( x, y, speed, sprite ) {
+let Sprite = function ( x, y, speed, sprite ) {
 
 	this.x = x; // the x position where this Sprite will start
 	this.y = y; // the y position where this sprite will start
@@ -84,7 +84,7 @@ Sprite.prototype.render = function () {
  *
  ******************************************************************************/
 
-var Enemy = function ( x, y, speed, sprite ) {
+let Enemy = function ( x, y, speed, sprite ) {
 
 	// invoke the Sprite super constructer
 	Sprite.call( this, x, y, speed, sprite );
@@ -185,7 +185,7 @@ Enemy.prototype.update = function ( dt ) {
  *
  ******************************************************************************/
 
-var Player = function ( x, y, moveX, moveY, sprite ) {
+let Player = function ( x, y, moveX, moveY, sprite ) {
 	// invoke the Sprite super-constructer
 	Sprite.call( this, x, y, 0, sprite );
 
@@ -324,8 +324,8 @@ Player.prototype.handleInput = function ( keyPress ) {
 Player.prototype.update = function () {
 
 	// calculate the max width and height the player can goalAchieved
-	var maxX = maxWidth - this.width;
-	var maxY = maxHeight - ( this.height + moveX );
+	let maxX = maxWidth - this.width;
+	let maxY = maxHeight - ( this.height + moveX );
 
 
 	if ( this.y <= this.height ) {
@@ -362,7 +362,7 @@ Player.prototype.update = function () {
  *
  *****************************************************************************/
 
-var Sound = function ( src ) {
+let Sound = function ( src ) {
 
 	// create the audio element in the DOM
 	this.sound = document.createElement( "audio" );
@@ -417,13 +417,13 @@ function addEnemy() {
 	 *--------------------------------------------------------------------------*/
 
 	// get a random Y position for the enemy
-	var loc = randomInt( enemyMinY, enemyMaxY );
+	let loc = randomInt( enemyMinY, enemyMaxY );
 
 	// pick a random speed
-	var speed = randomInt( speedMin, speedMax );
+	let speed = randomInt( speedMin, speedMax );
 
 	// pick a random enemy sprite
-	var sprite = enemyImg[ randomInt( 0, 3 ) ];
+	let sprite = enemyImg[ randomInt( 0, enemyImg.length - 1 ) ];
 
 	// create a new Enemy object and push it onto the array of enemies
 	const enemy = new Enemy( 0, loc, speed, sprite );
@@ -453,7 +453,7 @@ function allowedKeys( e ) {
 		allowed Keys and calls the Player function handleInput
 	 *-------------------------------------------------------------------------*/
 
-	var allowedKeys = {
+	let allowedKeys = {
 		37: 'left',
 		38: 'up',
 		39: 'right',
@@ -476,7 +476,7 @@ function gameOver() {
 	// create a new enemy list - should have 1 instance of each unique enemy
 	// note:  set speed = 0 to keep them static
 	for ( let i = 0; i < enemyImg.length; i++ ) {
-		var endEnemy = new Enemy( tileWidth * ( i ), 303, 0, enemyImg[ i ] );
+		let endEnemy = new Enemy( tileWidth * ( i ), 303, 0, enemyImg[ i ] );
 		//(tileWidth * (i) - width*2)
 		allEnemies.push( endEnemy );
 	}
@@ -493,7 +493,7 @@ function gameOver() {
 	reset( allEnemies[ 3 ], allEnemies[ 3 ].x + tileWidth + ( ( tileWidth - Resources.get( allEnemies[ 0 ].sprite ).width ) / 2 ), 296 );
 
 	// add Game Over grapic
-	var gameOverText = new Enemy( ( ( maxWidth - Resources.get( "images/GameOverText.png" ).width ) / 2 ), 55, 0, "images/GameOverText.png" );
+	let gameOverText = new Enemy( ( ( maxWidth - Resources.get( "images/GameOverText.png" ).width ) / 2 ), 55, 0, "images/GameOverText.png" );
 	allEnemies.push( gameOverText );
 
 	// stop the keyup LIstener
@@ -673,26 +673,26 @@ function updateHearts( num ) {
  *
  ******************************************************************************/
 
-var maxWidth = 505;
-var maxHeight = 606;
-var nRows = 6;
-var nCols = 5;
-var tileWidth = maxWidth / nCols;
-var tileHeight = 83;
-var allEnemies = [];
-var startX;
-var startY = tileHeight * ( nRows - 1 );
-var gameLevel = 1;
-var lives = 0;
-var maxLives = 5;
-var enemyMinY = tileHeight + 10;
-var enemyMaxY = ( tileHeight * 4 ) - 20;
-var speedMin = 50;
-var speedMax = 150;
-var moveX = tileWidth / 3;
-var moveY = tileHeight / 3;
-var playerImg = 'images/char-boy.png'
-var enemyImg = [ 'images/char-cat-girl.png', 'images/char-horn-girl.png', 'images/char-pink-girl.png', 'images/char-princess-girl.png' ]
+let maxWidth = 505;
+let maxHeight = 606;
+let nRows = 6;
+let nCols = 5;
+let tileWidth = maxWidth / nCols;
+let tileHeight = 83;
+let allEnemies = [];
+let startX;
+let startY = tileHeight * ( nRows - 1 );
+let gameLevel = 1;
+let lives = 0;
+let maxLives = 5;
+let enemyMinY = tileHeight + 10;
+let enemyMaxY = ( tileHeight * 4 ) - 20;
+let speedMin = 50;
+let speedMax = 150;
+let moveX = tileWidth / 3;
+let moveY = tileHeight / 3;
+let playerImg = 'images/char-boy.png'
+let enemyImg = [ 'images/char-cat-girl.png', 'images/char-horn-girl.png', 'images/char-pink-girl.png', 'images/char-princess-girl.png', 'images/enemy-bug1.png', 'images/enemy-bug1.png', 'images/enemy-bug1.png', 'images/enemy-bug1.png', 'images/enemy-bug1.png', 'images/enemy-bug1.png' ]
 
 // calculate the horizontal start position based on number of columns and tile width
 if ( nCols % 2 === 0 ) {
@@ -713,26 +713,6 @@ const success = new Sound( "sounds/success.wav" );
 // initialize the game
 newGame();
 
-// Add Event Listener for user input.  This listens for key presses and sends
-//the keys to the Player.handleInput() method.
-// TODO: consider allowing user to also key u, d, l, r.
-/*
-document.addEventListener( 'keyup', function ( e ) {
-	var allowedKeys = {
-		37: 'left',
-		38: 'up',
-		39: 'right',
-		40: 'down'
-	};
-
-	player.handleInput( allowedKeys[ e.keyCode ] );
-} );
-
-*/
-
 // Add Event LIstener for restart button and re-initializes the game
-/*document.getElementById( 'restart' ).addEventListener( 'click', newGame () {
-	newGame();
-} );
-*/
+
 document.getElementById( 'restart' ).addEventListener( 'click', newGame );
